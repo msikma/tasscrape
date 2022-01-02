@@ -241,9 +241,7 @@ const getPublicationDetailsFromID = async id => {
  * After retrieving details, the following data will be added:
  */
 const getPublicationDetails = async item => {
-  const res = await requestURL(item.url)
-  const $ = cheerio.load(await res.text())
-  const details = scrapePublicationDetails($)
+  const details = await getPublicationDetailsFromID(item._tasvideosID)
   return {
     ...item,
     details
