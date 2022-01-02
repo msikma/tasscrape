@@ -50,7 +50,7 @@ const parsePlayerAndTime = title => {
 /**
  * Retrieves item details from a Cheerio object of an item HTML page.
  */
-const scrapePublicationDetails = $ => {
+const scrapePublicationDetails = ($, url) => {
   const $card = $('.container .card')
   const $header = $('.card-header h4 > a', $card)
   const id = $header.attr('href').replace(/^\/(.+?)/, '$1')
@@ -93,6 +93,7 @@ const scrapePublicationDetails = $ => {
   return {
     id,
     title,
+    url,
     description: descriptionMarkdown,
     descriptionHTML: descriptionHTML,
     published,
@@ -208,7 +209,7 @@ const getPublicationDetailsFromID = async id => {
   const res = await requestURL(url)
   const $ = cheerio.load(await res.text())
   if (id.endsWith('M')) {
-    return scrapePublicationDetails($)
+    return scrapePublicationDetails($, url)
   }
   else if (id.endsWith('S')) {
     throw new Error('Submission pages are not implemented yet.')
