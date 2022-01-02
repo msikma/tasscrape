@@ -94,6 +94,7 @@ const scrapePublicationDetails = ($, url) => {
     id,
     title,
     url,
+    submission: ensureQualifiedURL(authorNotesLink.href),
     description: descriptionMarkdown,
     descriptionHTML: descriptionHTML,
     published,
@@ -108,7 +109,6 @@ const scrapePublicationDetails = ($, url) => {
     torrent,
     links: {
       youtube: ensureQualifiedURL(youtubeLink.href),
-      authorNotes: ensureQualifiedURL(authorNotesLink.href),
       forum: ensureQualifiedURL(forumLink.href)
     },
     classes: startTagBools,
