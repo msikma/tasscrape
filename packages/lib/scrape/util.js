@@ -7,9 +7,9 @@ const {ensureQualifiedURL} = require('../urls')
 /**
  * Converts an HTML string into Markdown.
  */
-const htmlToMarkdown = html => {
+const htmlToMarkdown = (html, useUnicodeLines = false) => {
   const converted = NodeHtmlMarkdown.translate(html)
-  return converted.replace(/\n---\n/g, '\n━━━━\n')
+  return useUnicodeLines ? converted.replace(/\n---\n/g, '\n━━━━\n') : converted
 }
 
 /**
