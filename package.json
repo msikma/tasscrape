@@ -1,0 +1,31 @@
+{
+  "name": "tasscrape-monorepo",
+  "version": "0.1.0",
+  "description": "Library for scraping basic information from the TASVideos website",
+  "private": true,
+  "keywords": [
+    "TASVideos",
+    "Speedrunning"
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
+  "homepage": "https://github.com/msikma/tasscrape",
+  "repository": "git+https://github.com/msikma/tasscrape",
+  "author": "Michiel Sikma <michiel@sikma.org>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "bin": {
+    "tasscrape.js": "packages/cli/index.js"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+  }
+}
