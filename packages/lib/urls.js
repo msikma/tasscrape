@@ -42,7 +42,7 @@ const ensureQualifiedURL = (url, params = {}, baseURL = BASE_URL) => {
 const publicationsFeed = () => makeURL('/Publications.rss')
 
 /** URL pointing to the media image for a publication or submission. */
-const mediaImage = id => makeURL(`/media/${id}.png`)
+const mediaImage = (id, ext = 'png') => makeURL(`/media/${id}.${ext}`)
 
 /** URL containing the details for a specific publication or submission. */
 const itemPage = id => makeURL(`/${id}`)
